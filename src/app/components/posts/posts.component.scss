@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    input {
+      width: 80%;
+      padding: 10px;
+      border: 2px solid #007bff;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #0056b3;
+        outline: none;
+      }
+    }
+  }
+
+  .loading {
+    font-size: 18px;
+    color: #007bff;
+    margin: 10px 0;
+    animation: fadeIn 1s infinite alternate;
+  }
+
+  .error {
+    font-size: 18px;
+    color: #ff0000;
+    margin: 10px 0;
+    animation: shake 0.5s;
+  }
+
+  .post {
+    width: 100%;
+    position: relative;
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin: 10px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    span.btn.delete {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+
+    form {
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

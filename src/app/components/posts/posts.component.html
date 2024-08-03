@@ -1,0 +1,26 @@
+<div class="container">
+      <form [formGroup]="addForm" (submit)="onAdd()">
+            <input type="text" placeholder="Add..." formControlName="title">
+      </form>
+
+      @if(store.isLoading()){
+      <div class="loading">
+            Loading ...
+      </div>
+      }
+      @if(store.error()){
+      <div class="error">
+            Error!! {{store.error()}}
+      </div>
+      }
+      @if(!store.isLoading()){
+      <div class="total">{{store.postsCount()}} items </div>
+
+      }
+      @for(post of store.posts(); track $index){
+      <div class="post">
+            {{post.title}} <span class="btn delete" (click)="onDelete(post.id)">X</span>
+
+      </div>
+      }
+</div>
